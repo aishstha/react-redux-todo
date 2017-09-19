@@ -5,6 +5,7 @@ import TodoList from './TodoList';
 
 class TodoPanel extends Component {
     render() {
+        
         return (
             <table>
                 <thead>
@@ -20,7 +21,9 @@ class TodoPanel extends Component {
         )
     }
 }
+
 function mapStateToProps(state) {
+
     return {
         todos: state.todoReducer.get('todos')
     }

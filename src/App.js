@@ -19,13 +19,16 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    await httputils.get('http://localhost:3012/api/todos').then(response => {
-      this.props.actions.saveTodos(response.data.data)
-    })
-
+    try {
+      let response = await httputils.get('http://localhost:3012/api/todos');
+      this.props.actions.saveTodos(response.data.data);
+    } catch (e) {
+      console.log('error', e);
+    }
   }
 
   render() {
+
     return (
       <div className="wrapper">
         <TodoBar />
@@ -35,6 +38,7 @@ class App extends Component {
   }
 }
 function mapDispatchToProps(dispatch) {
+  
   return {
     actions: bindActionCreators(Object.assign({}, todoActions), dispatch)
   }

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
-import TodoDelete from './todoDelete';
 import TodoEdit from './todoEdit';
+import TodoDelete from './todoDelete';
 
 
 class TodoList extends Component {
     render() {
+
         return (
             <tr>
                 <td>
@@ -19,6 +20,5 @@ class TodoList extends Component {
         )
     }
 }
-
 
 export default TodoList;
