@@ -2,6 +2,7 @@ html, body, input, button {
   font-family: Sawasdee;
   font-size: 20px;
 }
+
 .wrapper{
 background: rgba(200, 239, 184, 0.89);
 height: auto;
@@ -10,19 +11,23 @@ margin-left: auto;
 margin-right: auto;
 padding: 15px;
 border: 1px solid green;
-
 }
+
 .header{
   padding-bottom: 20px;
 }
+
 .floatr{
   float: right;
 }
+
 .todo {
 }
+
 th{
   width: 400px;
 }
+
 .todo__list {
   margin: 0;
   padding: 0;

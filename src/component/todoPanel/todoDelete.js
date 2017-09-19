@@ -16,16 +16,23 @@ import {
 class TodoDelete extends Component {
     constructor() {
         super();
+
         this.deleteTodo = this.deleteTodo.bind(this);
     }
 
-    deleteTodo(id) {
-        httputils.remove('http://localhost:3012/api/todos', id).then(response => {
-            this.props.actions.deleteTodo(id)
-        })
+    async deleteTodo(id) {
+        try{
+            let response = await httputils.remove('http://localhost:3012/api/todos', id)
+                this.props.actions.deleteTodo(id)
+        }
+        catch(e)
+        {
+            console.log("err",e);
+        }
     }
 
     render() {
+        
         return (<
             input className="floatr"
             type="button"
@@ -43,4 +50,5 @@ function mapDispatchToProps(dispatch) {
         actions: bindActionCreators(Object.assign({}, todoActions), dispatch)
     }
 }
+
 export default connect(null, mapDispatchToProps)(TodoDelete);

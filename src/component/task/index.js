@@ -7,22 +7,24 @@ import { taskActions } from '../../actions';
 class Task extends Component {
     constructor() {
         super();
+
         this.state = {
             task: ''
         }
+        
         this.deleteTask = this.deleteTask.bind(this);
     }
 
     deleteTask(event) {
         this.props.action.deleteTask(this.props.task, this.props.id);
     }
+
     render() {
 
         return (
             <div>
                 <tr>
                     <td>
-
                         {this.props.task}
                     </td>
                     <td className='todo__item'>
@@ -39,4 +41,5 @@ function mapDispatchToProps(dispatch) {
         actions: bindActionCreators(Object.assign({}, taskActions), dispatch)
     }
 }
+
 export default connect(null, mapDispatchToProps)(Task); 
